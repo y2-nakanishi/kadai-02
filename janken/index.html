@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- リセットcss読み込み -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- style.css読み込み -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- jquery読み込み -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>ジャンケンゲーム</title>
+</head>
+<body>
+    <!-- タイトルエリア -->
+    <div class="main">
+        <h1 class="title">ジャンケンゲーム</h1>
+    </div>
+
+    <!-- 結果表示エリア -->
+    <div class="result">
+       <h2 class="text"></h2>
+       <p class="result-img"></p>
+       <div class="result-text"></div>
+    </div>
+
+    <!-- 入力エリア -->
+    <div class="my-hand">
+        <ul class="hand-list">
+            <li id="gu" class="hand" value="1"><p><img class="hand-img" src="images/gu.png" alt=""></p></li>
+            <li id="choki" class="hand" value="2"><p><img class="hand-img" src="images/choki.png" alt=""></p></li>
+            <li id="pa" class="hand" value="3"><p><img class="hand-img" src="images/pa.png" alt=""></p></li>
+        </ul>
+    </div>
+
+<!-- ここからjs -->
+<script>
+ //グーボタンが押された時の処理
+$('#gu').on('click',function(){
+
+    // 敵の数字
+    let teki_num = Math.ceil(Math.random()*3);
+
+    // 勝敗表示処理（HTML表示）
+    if (teki_num == 1) {
+        $('.result-text').html('引き分け');
+    }else if (teki_num == 2) {
+        $('.result-text').html('あなたの勝ち');
+    }else if (teki_num == 3){
+        $('.result-text').html('あなたの負け');
+    }
+
+    // 相手が出した手を表示する処理
+    if(teki_num == 1){
+       $('.result-img').html('<img src="images/gu1.png" alt="">');
+    }else if(teki_num == 2){
+       $('.result-img').html('<img src="images/choki1.png" alt="">');
+    }else if(teki_num == 3){
+       $('.result-img').html('<img src="images/pa1.png" alt="">');
+    }
+
+}); 
+
+ //チョキボタンが押された時の処理
+$('#choki').on('click',function(){
+
+    // 敵の数字
+    let teki_num = Math.ceil(Math.random()*3);
+
+    // 勝敗表示処理（HTML表示）
+    if (teki_num == 1) {
+        $('.result-text').html('引き分け');
+    }else if (teki_num == 2) {
+        $('.result-text').html('あなたの勝ち');
+    }else if (teki_num == 3){
+        $('.result-text').html('あなたの負け');
+    }
+
+    // 相手が出した手を表示する処理
+    if(teki_num == 1){
+       $('.result-img').html('<img src="images/choki1.png" alt="">');
+    }else if(teki_num == 2){
+       $('.result-img').html('<img src="images/pa1.png" alt="">');
+    }else if(teki_num == 3){
+       $('.result-img').html('<img src="images/gu1.png" alt="">');
+    }
+
+});   
+
+ //パーボタンが押された時の処理
+ $('#pa').on('click',function(){
+
+// 敵の数字
+let teki_num = Math.ceil(Math.random()*3);
+
+// 勝敗表示処理（HTML表示）
+if (teki_num == 1) {
+    $('.result-text').html('引き分け');
+}else if (teki_num == 2) {
+    $('.result-text').html('あなたの勝ち');
+}else if (teki_num == 3){
+    $('.result-text').html('あなたの負け');
+}
+
+// 相手が出した手を表示する処理
+if(teki_num == 1){
+   $('.result-img').html('<img src="images/pa1.png" alt="">');
+}else if(teki_num == 2){
+   $('.result-img').html('<img src="images/gu1.png" alt="">');
+}else if(teki_num == 3){
+   $('.result-img').html('<img src="images/choki1.png" alt="">');
+}
+
+});   
+
+</script>
+</body>
+</html>
